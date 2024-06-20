@@ -141,7 +141,10 @@ class FlexibleBottomSheet<T> extends StatefulWidget {
         assert(!isCollapsible || minHeight == 0),
         assert(anchors == null || !anchors.any((anchor) => anchor > maxHeight)),
         assert(anchors == null || !anchors.any((anchor) => anchor < minHeight)),
-        assert(isExpand || maxHeight == initHeight && anchors == null);
+        assert(
+          isExpand ||
+              maxHeight == initHeight && (anchors == null || anchors.isEmpty),
+        );
 
   FlexibleBottomSheet.collapsible({
     required PopupRoute<T> route,
